@@ -23,21 +23,23 @@ def callModelOne():
         y1Value = data.get('y1',type = float)
         y2Value = data.get('y2',type = float)
     if isinstance(x1Value,float) and isinstance(x2Value,float) and isinstance(y1Value,float) and isinstance(y2Value,float):
-        return jsonify(str(modelOne.predict([[x1Value,x2Value,y1Value,y2Value]])[0:4]))
+        return jsonify({"result" : str(modelOne.predict([[x1Value,x2Value,y1Value,y2Value]])[0:4])})
     else:
-        return jsonify('Invalid input')
+        return jsonify({"message" : "Invalid input"})
 @app.route('/model2', methods=['GET','POST'])
 def callModelTwo():
     xValue = request.get_json(silent=True) or request.headers.get('x', type=int) or request.args.get('x', type=int) or request.form.get('x', type=int)
     if isinstance(xValue,int):
         if xValue<50 or xValue>250:
-            return 'Invalid input! Please enter a number between 50 to 250'
-        if xValue>=50 and xValue<200:
-            return '50 Days SMA: ' + str(df_time_series[xValue])
-        if xValue>=200 and xValue<=250:
-            return jsonify('50 Days SMA : '+ str(df_time_series[xValue])+'200 Days SMA : ' + str(df_time_series1[xValue]))
+            return jsonify({"message":'Invalid input! Please enter a number between 50 to 250'})
+        elif xValue>=50 and xValue<200:
+            return jsonify({"5*Days" : str(df_time_series[xValue])})
+        elif xValue>=200 and xValue<=250:
+            return jsonify({"2**Days" + str(df_time_series[xValue])})
+        else:
+            return jsonify({"message":'Invalid input! Please enter a number between 50 to 250'})
     else:
-        return jsonify('Invalid input! Please enter an integer')
+        return jsonify({"message" : "Invalid input! Please enter an integer"})
 # run the server
 if __name__ == '__main__':
     print("Starting the server.....")
