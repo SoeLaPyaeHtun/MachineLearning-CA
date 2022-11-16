@@ -2,33 +2,44 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    string[] result = (string[])ViewData["result"];
+    string message = (string)ViewData["message"];
+    string result = (string)ViewData["result"];
 }
 
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
     <div class="col-md-5 p-lg-5 mx-auto my-5" style="width: 100%;padding-top: 100px;">
         <form method="POST" action="">
             <div class="form-group">
-                <input type="text" class="form-control" name="x" id="x" aria-describedby="emailHelp" placeholder="x1" style="width:20%;text-align: center;margin-left: auto;margin-right: auto;"><br />
-                <input type="text" class="form-control" name="x2" id="x2" aria-describedby="emailHelp" placeholder="x2" style="width:20%;text-align: center;margin-left: auto;margin-right: auto;"><br />
-                <input type="text" class="form-control" name="x3" id="x3" aria-describedby="emailHelp" placeholder="x3" style="width:20%;text-align: center;margin-left: auto;margin-right: auto;"><br />
-                <input type="text" class="form-control" name="x4" id="x4" aria-describedby="emailHelp" placeholder="x4" style="width:20%;text-align: center;margin-left: auto;margin-right: auto;">
-                <small id="emailHelp" class="form-text text-muted">Output value is perdition,So it will not be completely true</small>
+                <input type="text" class="form-control" name="x1" id="x1" aria-describedby="x" placeholder="sepal_length_cm" required style="width:20%;text-align: center;margin-left: auto;margin-right: auto;"><br />
+                <input type="text" class="form-control" name="x2" id="x2" aria-describedby="x" placeholder="sepal_width_cm" required style="width:20%;text-align: center;margin-left: auto;margin-right: auto;"><br />
+                <input type="text" class="form-control" name="y1" id="y1" aria-describedby="x" placeholder="petal_length_cm" required style="width:20%;text-align: center;margin-left: auto;margin-right: auto;"><br />
+                <input type="text" class="form-control" name="y2" id="y2" aria-describedby="x" placeholder="petal_width_cm" required style="width:20%;text-align: center;margin-left: auto;margin-right: auto;">
+                <small id="x" class="form-text text-muted">Output value is perdition,So it will not be completely true</small>
             </div>
-
+            <br />
             <input type="submit" class="btn btn-primary" value="Calculate" />
         </form>
         </br>
-        @if (ViewData["result"] != null)
+        @if (ViewData["message"] != null || ViewData["result"] != null)
+        {
+            @if (ViewData["message"] != "")
             {
-            <div class="alert alert-info" role="alert" style="width:50%;text-align: center;margin-left: auto;margin-right: auto;">
-                According to pervious advert and Sale relation,
-                When Advert Value is  <strong>@result[0]</strong>, Predition Sale Value is  <strong>@result[1]</strong>
-            </div>
+                <div class="alert alert-danger" role="alert" style="width:60%;text-align: center;margin-left: auto;margin-right: auto;">
+
+                    <strong>@message</strong>
+                </div>
 
             }
+            else if (ViewData["result"] != "")
+            {
+                <div class="alert alert-info" role="alert" style="width:50%;text-align: center;margin-left: auto;margin-right: auto;">
 
-        </div>
+                    According to your inputs , Result may be <strong>@result</strong> ,<br /> This Calculation is based on Logiistics Regression trained model.
+                </div>
+            }
+        }
+
+    </div>
 
 </div>
 

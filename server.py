@@ -23,7 +23,7 @@ def callModelOne():
         y1Value = data.get('y1',type = float)
         y2Value = data.get('y2',type = float)
     if isinstance(x1Value,float) and isinstance(x2Value,float) and isinstance(y1Value,float) and isinstance(y2Value,float):
-        return jsonify({"result" : str(modelOne.predict([[x1Value,x2Value,y1Value,y2Value]])[0:4])})
+        return jsonify({"result" : str(modelOne.predict([[x1Value,x2Value,y1Value,y2Value]]))[2:-2]})
     else:
         return jsonify({"message" : "Invalid input"})
 @app.route('/model2', methods=['GET','POST'])

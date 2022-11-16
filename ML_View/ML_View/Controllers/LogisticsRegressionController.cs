@@ -18,7 +18,7 @@ namespace ML_View.Controllers
         {
             if (x1 != null && x2 != null && y1 != null && y2 != null)
             {
-                string nextUrl = $"model1?x={x1}&x2={x2}&y1={y1}&y2={y2}";
+                string nextUrl = $"model1?x1={x1}&x2={x2}&y1={y1}&y2={y2}";
                
                
                 HttpClient client = new HttpClient();
@@ -32,16 +32,10 @@ namespace ML_View.Controllers
                     string data = respone.Content.ReadAsStringAsync().Result;
                     var details = JObject.Parse(data);
 
-                    if (Convert.ToString(details["message"]) != "")
-                    {
-                        result = Convert.ToString(details["message"]);
-                    }
 
-                    if (Convert.ToString(details["result"]) != "")
-                    {
-                        result = Convert.ToString(details["result"]);
-                    }
-                    ViewData["result"] = result;
+                    ViewData["message"] = Convert.ToString(details["message"]);
+                    ViewData["result"] = Convert.ToString(details["result"]);
+                   
                 }
             }
 
