@@ -22,10 +22,12 @@ def callModelOne():
         x2Value = data.get('x2',type = float)
         y1Value = data.get('y1',type = float)
         y2Value = data.get('y2',type = float)
-    if isinstance(x1Value,float) and isinstance(x2Value,float) and isinstance(y1Value,float) and isinstance(y2Value,float):
-        return jsonify({"result" : str(modelOne.predict([[x1Value,x2Value,y1Value,y2Value]])[0:4])})
-    else:
+    if x1Value is None or x2Value is None or y1Value is None or y2Value is None:
         return jsonify({"message" : "Invalid input"})
+    if x1Value < 0 or x2Value < 0 or y1Value < 0 or y2Value < 0:
+        return jsonify({"message" : "Input only positive values"})
+    else:
+        return jsonify({"result" : str(modelOne.predict([[x1Value,x2Value,y1Value,y2Value]])[0:4])})
 @app.route('/model2', methods=['GET','POST'])
 def callModelTwo():
     xValue = request.get_json(silent=True) or request.headers.get('x', type=int) or request.args.get('x', type=int) or request.form.get('x', type=int)
