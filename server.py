@@ -33,9 +33,9 @@ def callModelTwo():
         if xValue<50 or xValue>250:
             return jsonify({"message":'Invalid input! Please enter a number between 50 to 250'})
         elif xValue>=50 and xValue<200:
-            return jsonify({"5*Days" : str(df_time_series[xValue])})
+            return jsonify({"5*Days" : str(df_time_series[xValue])+ " is for 50days"})
         elif xValue>=200 and xValue<=250:
-            return jsonify({"2**Days" : str(df_time_series[xValue])})
+            return jsonify({"2**Days" : str(df_time_series[xValue])+ " is for 200days"})
         else:
             return jsonify({"message":'Invalid input! Please enter a number between 50 to 250'})
     else:

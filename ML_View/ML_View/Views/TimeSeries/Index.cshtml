@@ -1,0 +1,47 @@
+﻿@{
+    string message = (string)ViewData["message"];
+    string twoDays = (string)ViewData["2Days"];
+    string fiveDays = (string)ViewData["5Days"];
+}
+
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center">
+    <div class="col-md-5 p-lg-5 mx-auto my-5" style="width: 100%;padding-top: 100px;">
+        <form method="POST" action="">
+            <div class="form-group">
+                <p>Enter Days bteween 50 and 200</p>
+                <input type="text" class="form-control" name="x" id="x" aria-describedby="x" placeholder="Type Here" style="width:20%;text-align: center;margin-left: auto;margin-right: auto;">
+                <small id="x" class="form-text text-muted">Output value is perdition,So it will not be completely true</small>
+            </div><br />
+
+            <input type="submit" class="btn btn-primary" value="Calculate" />
+        </form>
+        </br>
+        @if(ViewData["message"] != null || ViewData["2Days"] != null || ViewData["5Days"] != null)
+            {
+        @if (ViewData["message"] != "")
+        {
+            <div class="alert alert-danger" role="alert" style="width:60%;text-align: center;margin-left: auto;margin-right: auto;">
+
+                <strong>@message</strong>
+            </div>
+
+        }
+        else if (ViewData["2Days"] != "")
+        {
+            <div class="alert alert-info" role="alert" style="width:50%;text-align: center;margin-left: auto;margin-right: auto;">
+
+                <strong>@twoDays</strong>
+            </div>
+        }
+        else if (ViewData["5Days"] != "")
+        {
+            <div class="alert alert-info" role="alert" style="width:50%;text-align: center;margin-left: auto;margin-right: auto;">
+
+                <strong>@fiveDays</strong>
+            </div>
+        }
+        }
+    </div>
+
+</div>
