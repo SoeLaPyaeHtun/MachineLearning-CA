@@ -5,10 +5,14 @@
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       }
     }
@@ -53,11 +57,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/soelapyaehtun/Desktop/MLCADeployment/ML_View/ML_View/ML_View.csproj",
+      "projectUniqueName": "/Users/soelapyaehtun/Desktop/coding/MLCADeployment/ML_View/ML_View/ML_View.csproj",
       "projectName": "ML_View",
-      "projectPath": "/Users/soelapyaehtun/Desktop/MLCADeployment/ML_View/ML_View/ML_View.csproj",
+      "projectPath": "/Users/soelapyaehtun/Desktop/coding/MLCADeployment/ML_View/ML_View/ML_View.csproj",
       "packagesPath": "/Users/soelapyaehtun/.nuget/packages/",
-      "outputPath": "/Users/soelapyaehtun/Desktop/MLCADeployment/ML_View/ML_View/obj/",
+      "outputPath": "/Users/soelapyaehtun/Desktop/coding/MLCADeployment/ML_View/ML_View/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/soelapyaehtun/.nuget/NuGet/NuGet.Config"
@@ -108,7 +112,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
