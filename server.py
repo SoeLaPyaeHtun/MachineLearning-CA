@@ -22,7 +22,10 @@ def callModelOne():
         x2Value = data.get('x2',type = float)
         y1Value = data.get('y1',type = float)
         y2Value = data.get('y2',type = float)
-    if x1Value is None or x2Value is None or y1Value is None or y2Value is None:
+
+    if isinstance(x1Value,float) and isinstance(x2Value,float) and isinstance(y1Value,float) and isinstance(y2Value,float):
+        return jsonify({"result" : str(modelOne.predict([[x1Value,x2Value,y1Value,y2Value]]))[2:-2]})
+    else:
         return jsonify({"message" : "Invalid input"})
     if x1Value < 0 or x2Value < 0 or y1Value < 0 or y2Value < 0:
         return jsonify({"message" : "Input only positive values"})
@@ -35,9 +38,9 @@ def callModelTwo():
         if xValue<50 or xValue>250:
             return jsonify({"message":'Invalid input! Please enter a number between 50 to 250'})
         elif xValue>=50 and xValue<200:
-            return jsonify({"5*Days" : str(df_time_series[xValue])})
+            return jsonify({"5*Days" : str(df_time_series[xValue])+ " is for 50days"})
         elif xValue>=200 and xValue<=250:
-            return jsonify({"2**Days" : str(df_time_series[xValue])})
+            return jsonify({"2**Days" : str(df_time_series[xValue])+ " is for 200days"})
         else:
             return jsonify({"message":'Invalid input! Please enter a number between 50 to 250'})
     else:
