@@ -1,5 +1,4 @@
 ﻿<Properties StartupConfiguration="{74B660BF-266F-4067-89A8-F30B073A80BA}|Default">
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workbench ActiveDocument="ML_View/Views/TimeSeries/Index.cshtml">
     <Files>
       <File FileName="ML_View/Controllers/HomeController.cs" />
@@ -7,7 +6,7 @@
       <File FileName="ML_View/Views/TimeSeries/Index.cshtml" Line="20" Column="16" />
       <File FileName="ML_View/Views/Home/Index.cshtml" />
       <File FileName="ML_View/Views/LogisticsRegression/index.cshtml" />
-      <File FileName="ML_View/Views/Shared/_Layout.cshtml" Line="11" Column="118" />
+      <File FileName="ML_View/Views/Shared/_Layout.cshtml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -20,7 +19,9 @@
                 <Node name="Home" expanded="True" />
                 <Node name="LogisticsRegression" expanded="True" />
                 <Node name="Shared" expanded="True" />
-                <Node name="TimeSeries" expanded="True" />
+                <Node name="TimeSeries" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
               </Node>
               <Node name="wwwroot" expanded="True" />
             </Node>
@@ -29,10 +30,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ML__View PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.ML__View PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>
