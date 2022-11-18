@@ -16,6 +16,7 @@ namespace ML_View.Controllers
         Uri baseAddress = new Uri("http://127.0.0.1:5000/");
         public IActionResult Index(string x)
         {
+
             if (x != null)
             {
                 string nextUrl = $"model2?x={x}";
@@ -32,8 +33,8 @@ namespace ML_View.Controllers
                     var details = JObject.Parse(data);
                    
                     ViewData["message"] = Convert.ToString(details["message"]);
-                    ViewData["2Days"] = Convert.ToString(details["2**Days"]);
-                    ViewData["5Days"] = Convert.ToString(details["5*Days"]);
+                    ViewData["result"] = Convert.ToString(details["result"]);
+                    ViewData["input"] = x;
                     
                 }
                

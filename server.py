@@ -35,14 +35,10 @@ def callModelOne():
 def callModelTwo():
     xValue = request.get_json(silent=True) or request.headers.get('x', type=int) or request.args.get('x', type=int) or request.form.get('x', type=int)
     if isinstance(xValue,int):
-        if xValue<50 or xValue>250:
+        if xValue>250 or xValue < 50:
             return jsonify({"message":'Invalid input! Please enter a number between 50 to 250'})
-        elif xValue>=50 and xValue<200:
-            return jsonify({"5*Days" : str(df_time_series[xValue])+ " is for 50days"})
-        elif xValue>=200 and xValue<=250:
-            return jsonify({"2**Days" : str(df_time_series[xValue])+ " is for 200days"})
         else:
-            return jsonify({"message":'Invalid input! Please enter a number between 50 to 250'})
+            return jsonify({"result": str(df_time_series[xValue])})
     else:
         return jsonify({"message" : "Invalid input! Please enter an integer"})
 # run the server

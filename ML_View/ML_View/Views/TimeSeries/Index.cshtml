@@ -1,7 +1,7 @@
 ﻿@{
     string message = (string)ViewData["message"];
-    string twoDays = (string)ViewData["2Days"];
-    string fiveDays = (string)ViewData["5Days"];
+    string result = (string)ViewData["result"];
+    string days = (string)ViewData["input"];
 }
 
 
@@ -10,7 +10,7 @@
         <form method="POST" action="">
             <div class="form-group">
                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" style="text-decoration: none;"><i class="fa fa-home"></i></a>
-                <p>Enter Days bteween 50 and 200</p>
+                <p>Enter Days bteween 50 and 250</p>
                 <input type="text" class="form-control" name="x" id="x" aria-describedby="x" placeholder="Type Here" style="width:20%;text-align: center;margin-left: auto;margin-right: auto;">
                 <small id="x" class="form-text text-muted">Output value is perdition,So it will not be completely true</small>
             </div><br />
@@ -18,7 +18,7 @@
             <input type="submit" class="btn btn-primary" value="Calculate" />
         </form>
         </br>
-        @if(ViewData["message"] != null || ViewData["2Days"] != null || ViewData["5Days"] != null)
+        @if(ViewData["message"] != null || ViewData["result"] != null)
             {
         @if (ViewData["message"] != "")
         {
@@ -28,20 +28,14 @@
             </div>
 
         }
-        else if (ViewData["2Days"] != "")
+        else if (ViewData["result"] != "")
         {
             <div class="alert alert-info" role="alert" style="width:50%;text-align: center;margin-left: auto;margin-right: auto;">
 
-               According to your input, Result may be <strong>@twoDays</strong>, this calculation is based on 200 days Time-Series
+               According to your input, Result may be <strong>@result</strong>, this calculation is based on  @days days Time-Series
             </div>
         }
-        else if (ViewData["5Days"] != "")
-        {
-    <div class="alert alert-info" role="alert" style="width:50%;text-align: center;margin-left: auto;margin-right: auto;">
-
-        According to your input, Result may be <strong>@fiveDays</strong>, this calculation is based on 50 days Time-Series
-    </div>
-        }
+       
         }
     </div>
 
