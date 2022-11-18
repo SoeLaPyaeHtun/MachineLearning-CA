@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "iz7GfKQWzfCBIJ8bGFONCKjqE/i4vEqvX5agnIcdO5Chp/U+G9P3Pyudcw2QnSIq9/8WB1nk0ibkFMTpqha59A==",
+  "success": true,
+  "projectFilePath": "/Users/soelapyaehtun/Desktop/coding/MLCADeployment/ML_View(asp.net)/ML_View/ML_View.csproj",
+  "expectedPackageFiles": [
+    "/Users/soelapyaehtun/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
