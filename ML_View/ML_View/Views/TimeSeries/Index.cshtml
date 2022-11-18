@@ -10,6 +10,7 @@
         <form method="POST" action="">
             <div class="form-group">
                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" style="text-decoration: none;"><i class="fa fa-home"></i></a>
+                <p>This time series model predicts the Amazon stock price based on moving average.</p>
                 <p>Enter days between 50 and 250</p>
                 <input type="text" class="form-control" name="x" id="x" aria-describedby="x" placeholder="Type Here" style="width:20%;text-align: center;margin-left: auto;margin-right: auto;">
                 <small id="x" class="form-text text-muted">Output value is a prediction, so it will not be completely true</small>
@@ -21,18 +22,18 @@
         @if(ViewData["message"] != null || ViewData["result"] != null)
             {
         @if (ViewData["message"] != "")
-        {
+            {
             <div class="alert alert-danger" role="alert" style="width:60%;text-align: center;margin-left: auto;margin-right: auto;">
 
                 <strong>@message</strong>
             </div>
 
-        }
-        else if (ViewData["result"] != "")
-        {
+            }
+            else if (ViewData["result"] != "")
+            {
             <div class="alert alert-info" role="alert" style="width:50%;text-align: center;margin-left: auto;margin-right: auto;">
 
-               According to your input, the result may be <strong>@result</strong>. This calculation is based on @days days Time-Series
+               According to your input, the result for Day @days may be <strong>$@result</strong>. This calculation is based on 50-day moving average.
             </div>
         }
        
