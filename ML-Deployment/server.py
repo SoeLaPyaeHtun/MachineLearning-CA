@@ -7,7 +7,6 @@ import pickle
 app = Flask(__name__)
 modelOne = pickle.load(open('model1.pkl', 'rb')) # load model1 to the server, 'rb' - read binary
 df_time_series = pd.read_pickle('model2.pkl')
-df_time_series1 = pd.read_pickle('model21.pkl')
 
 @app.route('/model1', methods=['GET','POST'])
 def callModelOne():
